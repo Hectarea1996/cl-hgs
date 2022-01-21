@@ -31,6 +31,21 @@
             ; Rendering commands
             (gl:clear-color 0.2 0.3 0.3 1.0)
             (gl:clear :color-buffer-bit)
+
+            (let ((VBO (gen-buffer)))
+                (bind-buffer :array-buffer VBO)
+                (with-gl-array (arr float :count 9)
+                    (setf (glaref arr 0) -0.5)
+                    (setf (glaref arr 0) -0.5)
+                    (setf (glaref arr 0)  0.0)
+                    (setf (glaref arr 0)  0.5)
+                    (setf (glaref arr 0) -0.5)
+                    (setf (glaref arr 0)  0.0)
+                    (setf (glaref arr 0)  0.0)
+                    (setf (glaref arr 0)  0.5)
+                    (setf (glaref arr 0)  0.0)
+                    
+                    (buffer-data :array-buffer :static-draw arr)))
             
             ; Check and call events and swap the buffers
             (glfw:poll-events)
