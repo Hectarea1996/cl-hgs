@@ -1,5 +1,5 @@
 
-(asdf:defsystem "common-vulkan"
+(asdf:defsystem "cl-hgs"
    :depends-on ("cffi" "cl-glfw" "iterate" "alexandria")
    :components (
                 ; Vulkan
